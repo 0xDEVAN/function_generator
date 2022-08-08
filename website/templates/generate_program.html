@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block title %}Generate Programs{% endblock %} {% block content
+    %}
+    <h1 align="center">Generate programs</h1>
+    <ul class="list-group list-group-flush" id="written_programs">
+      {% for prog in user.written_progs %}
+      <li class="list-group-item">
+        {{ prog.data }}
+        <button type="button" class="close" onClick="deleteProg({{ prog.id }})">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </li>
+      {% endfor %}
+    </ul>
+    <form method="POST">
+      <textarea name="prog" id="prog" class="form-control"></textarea>
+      <br />
+      <div align="center">
+        <button type="submit" class="btn btn-primary">Add program</button>
+      </div>
+    </form>
+    {% endblock %}

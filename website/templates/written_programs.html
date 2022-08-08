@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Written Programs{% endblock %} {% block content
+  %}
+  <h1 align="center">Written programs</h1>
+  <ul class="list-group list-group-flush" id="written_programs">
+    {% for prog in user.written_progs %}
+    <li class="list-group-item">
+      {{ prog.data }}
+      <button type="button" class="close" onClick="deleteProg({{ prog.id }})">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endblock %}
